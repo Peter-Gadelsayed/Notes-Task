@@ -22,6 +22,6 @@ export class NotesService {
   }
 
   postData(pageName: string, note: Note): Observable<any> {
-    return this.http.post<any>(this.apiUrl(pageName), this.newNote);
+    return this.http.post<any>(this.apiUrl(pageName), note);
   }
 }

@@ -30,5 +30,5 @@ export class AllNotesComponent implements OnInit {
 
   createNote() {
     this.router.navigate(['/notes/create'])
-    }
+  }
 }

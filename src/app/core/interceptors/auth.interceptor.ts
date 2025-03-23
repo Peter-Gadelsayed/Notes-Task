@@ -8,7 +8,7 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private authService: AuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const authToken = this.authService.getToken();
+    const authToken = this.authService.getToken() || '';
 
     // If there's no token, continue the request without modifying it
     if (!authToken) {
@@ -16,11 +16,10 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     // Clone the request and add the Authorization header
-    const authReq = req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${authToken}`
-      }
-    });
+    const authReq = authToken
+      ? req.clone({ setHeaders: { Authorization: `Bearer ${authToken}` } })
+      : req;
+
 
     return next.handle(authReq);
   }
