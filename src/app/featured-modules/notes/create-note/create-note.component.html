@@ -1,0 +1,45 @@
+<div class="container">
+  <h1 class="h1 my-4 text-center">Create Note</h1>
+  <form class="form-control w-75 mx-auto" [formGroup]="note" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label class="form-label" for="title">Title:</label>
+      <input class="form-control" formControlName="title" type="text">
+      <div *ngIf="note.get('title')?.invalid && note.get('title')?.touched">
+        <small *ngIf="note.get('title')?.errors?.['required']">Title is required.</small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="content">Content:</label>
+      <input class="form-control" formControlName="content" type="text">
+      <div *ngIf="note.get('content')?.invalid && note.get('content')?.touched">
+        <small *ngIf="note.get('content')?.errors?.['required']">Content is required.</small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="category">Category:</label>
+      <input class="form-control" formControlName="category" type="text">
+      <div *ngIf="note.get('category')?.invalid && note.get('category')?.touched">
+        <small *ngIf="note.get('category')?.errors?.['required']">Category is required.</small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="priority">Priority:</label>
+      <input class="form-control" formControlName="priority" type="text">
+      <div *ngIf="note.get('priority')?.invalid && note.get('priority')?.touched">
+        <small *ngIf="note.get('priority')?.errors?.['required']">Priority is required.</small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="tags">Tags:</label>
+      <input class="form-control" formControlName="tags" type="text">
+      <div *ngIf="note.get('tags')?.invalid && note.get('tags')?.touched">
+        <small *ngIf="note.get('tags')?.errors?.['required']">Tags is required.</small>
+      </div>
+    </div>
+    <div class="my-3">
+      <button class="btn btn-primary me-3" [disabled]="note.invalid" type="submit">Submit</button>
+      <button class="btn btn-success me-3" [disabled]="note.invalid" type="button">Update</button>
+    </div>
+  </form>
+
+</div>

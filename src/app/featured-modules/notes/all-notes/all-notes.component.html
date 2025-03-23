@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="text-center">
+    <h2 class="h2">All Notes</h2>
+    <a (click)="createNote()" class="btn btn-primary">Create</a>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+    <div class="col" *ngFor="let note of notes">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{note.title}}</h5>
+          <p class="card-text">{{note.content}}</p>
+          <p class="card-text">{{note.priority}}</p>
+          <p class="card-text">{{note.category}}</p>
+          <p class="card-text">{{note.tags}}</p>
+          <a (click)="openNote(note)" class="btn btn-success">{{btnText}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
