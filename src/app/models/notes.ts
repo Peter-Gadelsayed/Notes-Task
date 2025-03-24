@@ -9,12 +9,12 @@ export interface Notes {
 }
 
 
-export interface Note {
+// export interface Note {
 
-  title: string,
-  content: string,
-  category: string,
-  priority: string,
-  tags: string
+//   title: string,
+//   content: string,
+//   category: string,
+//   priority: string,
+//   tags: string
 
-}
+// }

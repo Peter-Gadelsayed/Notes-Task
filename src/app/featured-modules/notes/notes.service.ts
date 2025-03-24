@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Note } from 'src/app/models/notes';
+import { Notes } from 'src/app/models/notes';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class NotesService {
 
   constructor(private http: HttpClient) { }
   private baseUrl = environment.baseUrl;
-  newNote!: Note;
+  newNote!: Notes;
 
   apiUrl(pageName: string): string {
     return `${this.baseUrl}/${pageName}`;
@@ -21,7 +21,7 @@ export class NotesService {
     return this.http.get<any>(this.apiUrl(pageName));
   }
 
-  postData(pageName: string, note: Note): Observable<any> {
+  postData(pageName: string, note: Notes): Observable<any> {
     return this.http.post<any>(this.apiUrl(pageName), note);
   }
 
