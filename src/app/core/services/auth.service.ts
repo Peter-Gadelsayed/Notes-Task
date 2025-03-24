@@ -11,7 +11,6 @@ export class AuthService {
 
   setToken(token: string): void {
     localStorage.setItem('authToken', token); // ✅ Save token after login
-    token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBAcHAuY29tIiwiaWF0IjoxNzQyNzUwNzM0LCJleHAiOjE3NDI3OTM5MzR9.fS0IV0wT-LdazMqVpO4UzNynsP-Sn3q_drk_YXywPp8";
 
   }
 

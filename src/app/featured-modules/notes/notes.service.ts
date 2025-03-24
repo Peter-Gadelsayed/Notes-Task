@@ -14,7 +14,7 @@ export class NotesService {
   newNote!: Note;
 
   apiUrl(pageName: string): string {
-    return `${this.baseUrl}${pageName}`;
+    return `${this.baseUrl}/${pageName}`;
   }
 
   getData(pageName: string): Observable<any> {
@@ -24,4 +24,5 @@ export class NotesService {
   postData(pageName: string, note: Note): Observable<any> {
     return this.http.post<any>(this.apiUrl(pageName), note);
   }
+
 }

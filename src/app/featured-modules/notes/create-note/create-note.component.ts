@@ -29,7 +29,13 @@ export class CreateNoteComponent implements OnInit {
 
   onSubmit() {
     this.apiService.postData(this.pageName, this.note.value).subscribe((note) => {
-      this.notes.unshift(note);
+      // this.notes.unshift(note);
+      console.log('Note created:', note);
     });
+    this.clearData();
+  }
+
+  clearData() {
+    this.note.reset();
   }
 }

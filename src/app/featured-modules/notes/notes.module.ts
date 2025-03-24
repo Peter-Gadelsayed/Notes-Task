@@ -7,7 +7,6 @@ import { ShowNoteComponent } from './show-note/show-note.component';
 import { UpdateNoteComponent } from './update-note/update-note.component';
 import { AllNotesComponent } from './all-notes/all-notes.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
 @NgModule({
@@ -21,7 +20,7 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     CommonModule,
     NotesRoutingModule,
     ReactiveFormsModule,
-    AppRoutingModule
+
   ]
 })
 export class NotesModule { }
