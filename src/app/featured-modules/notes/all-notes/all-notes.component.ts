@@ -14,24 +14,9 @@ export class AllNotesComponent implements OnInit {
 
 
   notes!: Notes[];
-  // notes = [
-  //   {
-  //     title: 'Sample Note 1',
-  //     content: 'This is a sample note.',
-  //     priority: 'High',
-  //     category: 'Work',
-  //     tags: 'Angular, TypeScript'
-  //   },
-  //   {
-  //     title: 'Sample Note 2',
-  //     content: 'This is another sample note.',
-  //     priority: 'Medium',
-  //     category: 'Personal',
-  //     tags: 'HTML, CSS'
-  //   }
-  // ];
 
-  btnText: string = 'View';
+  OpenBtnText: string = 'View';
+  delBtnText: string = 'Delete';
 
   constructor(private apiService: NotesService, private router: Router, private token: AuthService) { }
 
@@ -44,7 +29,7 @@ export class AllNotesComponent implements OnInit {
   }
 
   fireToken() {
-    this.token.setToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBAcHAuY29tIiwiaWF0IjoxNzQyODQ3MDc2LCJleHAiOjE3NDI4OTAyNzZ9.oJ0n_Xk4Lfj2KjeEjWPDiyvtCSF_lEKILC6BLsZUodk');
+    this.token.setToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBAcHAuY29tIiwiaWF0IjoxNzQzMDAzOTYyLCJleHAiOjE3NDMwNDcxNjJ9.vQ-gKqxEA_Wh5r83TmQmK4YEbqSONY2blboDDxDN7r0');
   }
 
   openNote(note: Notes) {
@@ -53,6 +38,21 @@ export class AllNotesComponent implements OnInit {
 
   createNote() {
     this.router.navigate(['/notes/create'])
+  }
+
+  deleteNote(note: Notes): void {
+    if (confirm(`Are you sure you want to delete the note titled "${note.title}"?`)) {
+      this.apiService.deleteData(`notes/${note.id}`).subscribe({
+        next: () => {
+          console.log(`Note with ID ${note.id} deleted successfully.`);
+          // Remove the deleted note from the local notes array
+          this.notes = this.notes.filter(n => n.id !== note.id);
+        },
+        error: (err) => {
+          console.error('Error deleting note:', err);
+        }
+      });
+    }
   }
 }
 

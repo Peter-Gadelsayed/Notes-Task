@@ -1,0 +1,80 @@
+.notepad-icon {
+  margin-inline: auto;
+  width: 80%;
+  height: 80vb;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fdf2ab;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
+  // Spiral binding
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   height: 40px;
+  //   background-color: #8B4513; // Dark brown for spiral
+  //   border-top-left-radius: 10px;
+  //   border-top-right-radius: 10px;
+  // }
+
+  // Spiral rings
+  // .spiral-rings {
+  //   position: absolute;
+  //   top: 10px;
+  //   left: 0;
+  //   right: 0;
+  //   display: flex;
+  //   justify-content: space-around;
+
+  //   &::before {
+  //     content: '';
+  //     width: 15px;
+  //     height: 20px;
+  //     background-color: #D2691E; // Lighter brown ring
+  //     border-radius: 50%;
+  //   }
+  // }
+
+  // Lined paper
+  // .paper-lines {
+  //   position: absolute;
+  //   top: 40px;
+  //   left: 10px;
+  //   right: 10px;
+  //   bottom: 10px;
+  //   background:
+  //     linear-gradient(#fff 0px, transparent 1px) 0 0,
+  //     linear-gradient(90deg, #f0f0f0 0px, transparent 1px) 0 0;
+  //   background-size: 25px 25px;
+  //   background-color: #FFFFD0; // Light yellow paper color
+  // }
+
+  // "Notes" text
+  //   .notes-text {
+  //     position: absolute;
+  //     top: 50px;
+  //     left: 20px;
+  //     right: 20px;
+  //     font-family: 'Comic Sans MS', cursive;
+  //     font-size: 24px;
+  //     font-weight: bold;
+  //     color: #000;
+  //     text-decoration: underline;
+  //     text-decoration-color: red;
+  //     text-decoration-thickness: 2px;
+  //   }
+
+  .text-container {
+    display: grid;
+    align-items: start;
+    align-content: space-evenly;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+    padding: 10px;
+    gap: 10px;
+  }
+}

@@ -7,6 +7,7 @@ import { ShowNoteComponent } from './show-note/show-note.component';
 import { UpdateNoteComponent } from './update-note/update-note.component';
 import { AllNotesComponent } from './all-notes/all-notes.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from "../../shared/shared.module";
 
 
 @NgModule({
@@ -14,13 +15,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     CreateNoteComponent,
     ShowNoteComponent,
     UpdateNoteComponent,
-    AllNotesComponent
+    AllNotesComponent,
   ],
   imports: [
     CommonModule,
     NotesRoutingModule,
     ReactiveFormsModule,
-
+    SharedModule,
   ]
 })
 export class NotesModule { }

@@ -7,18 +7,16 @@ import { ShowNoteComponent } from './show-note/show-note.component';
 const routes: Routes = [
   {
     path: '', component: AllNotesComponent,
-    children: [
-      {
-        path: 'create', component: CreateNoteComponent
-      },
-      {
-        path: 'edite/:id', component: CreateNoteComponent
-      },
-      {
-        path: 'show/:id', component: ShowNoteComponent
-      },
-    ]
-  }
+  },
+  {
+    path: 'create', component: CreateNoteComponent
+  },
+  {
+    path: 'edite/:id', component: CreateNoteComponent
+  },
+  {
+    path: 'show/:id', component: ShowNoteComponent
+  },
 ];
 
 @NgModule({

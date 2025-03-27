@@ -7,14 +7,3 @@ export interface Notes {
   priority: string,
   tags: string
 }
-
-
-// export interface Note {
-
-//   title: string,
-//   content: string,
-//   category: string,
-//   priority: string,
-//   tags: string
-
-// }
