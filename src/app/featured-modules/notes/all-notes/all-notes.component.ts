@@ -29,7 +29,7 @@ export class AllNotesComponent implements OnInit {
   }
 
   fireToken() {
-    this.token.setToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBAcHAuY29tIiwiaWF0IjoxNzQzMDAzOTYyLCJleHAiOjE3NDMwNDcxNjJ9.vQ-gKqxEA_Wh5r83TmQmK4YEbqSONY2blboDDxDN7r0');
+    this.token.setToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBAcHAuY29tIiwiaWF0IjoxNzQzMTYzNDc4LCJleHAiOjE3NDMyMDY2Nzh9.G4beKC2GHv_AIqBZyxq3MNqCTAmP4W-FJhrTR1gi5og');
   }
 
   openNote(note: Notes) {
