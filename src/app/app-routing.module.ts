@@ -6,6 +6,10 @@ const routes: Routes = [
     path: 'notes',
     loadChildren: () => import('./featured-modules/notes/notes.module').then((m) => m.NotesModule)
   },
+  {
+    path: '',
+    loadChildren: () => import('./core/core.module').then((m) => m.CoreModule)
+  },
 ];
 
 @NgModule({

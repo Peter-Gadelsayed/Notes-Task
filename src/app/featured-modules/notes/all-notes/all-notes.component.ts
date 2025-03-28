@@ -21,15 +21,12 @@ export class AllNotesComponent implements OnInit {
   constructor(private apiService: NotesService, private router: Router, private token: AuthService) { }
 
   ngOnInit() {
+    this.token.fireToken();
     this.apiService.getData('notes').subscribe((notes) => {
-      console.log('Fetched posts:', notes);
+      console.log('Fetched notes:', notes);
       this.notes = notes;
-    });
-    this.fireToken();
-  }
-
-  fireToken() {
-    this.token.setToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBAcHAuY29tIiwiaWF0IjoxNzQzMTYzNDc4LCJleHAiOjE3NDMyMDY2Nzh9.G4beKC2GHv_AIqBZyxq3MNqCTAmP4W-FJhrTR1gi5og');
+    }, (error) => console.error('Error:', error)
+    );
   }
 
   openNote(note: Notes) {
