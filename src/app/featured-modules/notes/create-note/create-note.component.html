@@ -1,5 +1,17 @@
 <div class="container my-5">
   <h1 class="h1 my-4 text-center">Create Note</h1>
+  <div class="alert alert-info" role="alert">
+    <strong>Note:</strong> All fields are required.
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="IsError">
+    <strong>Error:</strong>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let errorMessage of errorMessages">{{ errorMessage }}</li>
+    </ul>
+  </div>
+  <div class="alert alert-success" role="alert" *ngIf="IsSuccess">
+    <strong>Success:</strong> {{ success }}
+  </div>
   <form class="form-control w-75 mx-auto" [formGroup]="note" (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label class="form-label" for="title">Title:</label>

@@ -26,33 +26,40 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(authReq).pipe(
       catchError((error) => {
-        console.error('Interceptor caught an error:', error);
+        console.log('Interceptor caught an error:', error);
         return this.handleError(error);
       }));
   }
+  errorMessages: string[] = [];
 
   // Handle errors
   private handleError(error: HttpErrorResponse): Observable<never> {
     console.log('Handling error:', error.status);
     switch (error.status) {
+      case 400:
+        console.log('Bad Request! Please check your input.');
+        this.errorMessages = Object.values(error.error.errors).flat() as string[];
+        this.authService.apiMessages = this.errorMessages;
+        console.log('Error Messages:', this.errorMessages);
+        break;
       case 401:
-        console.error('Unauthorized! OR Token Expired!');
+        console.log('Unauthorized! OR Token Expired!');
         this.router.navigate(['/session-expired']);
         break;
       case 403:
-        console.error('Access Denied! You do not have permission.');
+        console.log('Access Denied! You do not have permission.');
         this.router.navigate(['/access-denied']);
         break;
       case 404:
-        console.error('Not Found! The requested resource does not exist.');
+        console.log('Not Found! The requested resource does not exist.');
         this.router.navigate(['/not-found']);
         break;
       case 500:
-        console.error('Server error! Please try again later.');
+        console.log('Server error! Please try again later.');
         this.router.navigate(['/server-error']);
         break;
       default:
-        console.error('Error:', error.message);
+        console.log('Error:', error.message);
     }
 
     return throwError(() => new Error(error.message)); // Pass the error to the component
