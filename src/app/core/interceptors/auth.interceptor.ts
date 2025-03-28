@@ -30,7 +30,9 @@ export class AuthInterceptor implements HttpInterceptor {
         return this.handleError(error);
       }));
   }
+  // Define error messages
   errorMessages: string[] = [];
+  errorMessage: string = '';
 
   // Handle errors
   private handleError(error: HttpErrorResponse): Observable<never> {
@@ -44,18 +46,26 @@ export class AuthInterceptor implements HttpInterceptor {
         break;
       case 401:
         console.log('Unauthorized! OR Token Expired!');
+        this.errorMessage = error.message;
+        this.authService.apiMessage = this.errorMessage;
         this.router.navigate(['/session-expired']);
         break;
       case 403:
         console.log('Access Denied! You do not have permission.');
+        this.errorMessage = error.message;
+        this.authService.apiMessage = this.errorMessage;
         this.router.navigate(['/access-denied']);
         break;
       case 404:
         console.log('Not Found! The requested resource does not exist.');
+        this.errorMessage = error.message;
+        this.authService.apiMessage = this.errorMessage;
         this.router.navigate(['/not-found']);
         break;
       case 500:
         console.log('Server error! Please try again later.');
+        this.errorMessage = error.message;
+        this.authService.apiMessage = this.errorMessage;
         this.router.navigate(['/server-error']);
         break;
       default:

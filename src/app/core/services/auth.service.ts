@@ -10,7 +10,7 @@ export class AuthService implements OnInit {
   }
 
   apiMessages: string[] = [];
-
+  apiMessage: string = '';
 
   fireToken() {
     this.setToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBAcHAuY29tIiwiaWF0IjoxNzQzMTYzNDc4LCJleHAiOjE3NDMyMDY2Nzh9.G4beKC2GHv_AIqBZyxq3MNqCTAmP4W-FJhrTR1gi5og');
